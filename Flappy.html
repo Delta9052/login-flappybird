@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CKC Projekt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding: 50px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            font-size: 18px;
+            color: white;
+            background: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido a CKC Projekt</h1>
+    <button class="btn" onclick="playMusic()">🎵 Spotify </button>
+    <button class="btn" onclick="showImage()">🖼️ Imagen</button>
+    <button class="btn" onclick="showQuote()">📜 Frase</button>
+    <button class="btn" onclick="goToLogin()">🔙 Volver</button> 
+
+    <p id="result"></p>
+
+    <script>
+        const musicList = [
+            { title: "Gym de Lunay", url: "https://open.spotify.com/track/7kVBOWAEm4YG9I0GRxbxxg?si=10bdbb50bd8b4ee7" },
+            { title: "+57 De varios artistas", url: "https://open.spotify.com/track/3mg9jYNC1NihbthlglzrWP?si=7a68ef018b5e4b21" },
+            { title: "La pequeña Venecia de Danny Ocean", url: "https://open.spotify.com/track/0SFvSc2qggsVQqnfYzeCv4?si=1ed39f9237cc483e" }
+        ];
+
+        const imageList = [
+            "https://example.com/image1.jpg",
+            "https://example.com/image2.jpg",
+            "https://example.com/image3.jpg"
+        ];
+
+        const quotes = [
+            "No hay caminos para la paz, la paz es el camino.",
+            "La vida es lo que pasa mientras haces otros planes.",
+            "El éxito es la suma de pequeños esfuerzos repetidos día tras día."
+        ];
+
+        function playMusic() {
+            let song = musicList[Math.floor(Math.random() * musicList.length)];
+            document.getElementById("result").innerHTML = `<a href="${song.url}" target="_blank">🎶 Escuchar: ${song.title}</a>`;
+        }
+
+        function showImage() {
+            let img = imageList[Math.floor(Math.random() * imageList.length)];
+            document.getElementById("result").innerHTML = `<img src="${img}" alt="Imagen" style="max-width: 300px; margin-top: 20px;">`;
+        }
+
+        function showQuote() {
+            let quote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("result").innerText = `💬 "${quote}"`;
+        }
+
+        function goToLogin() {
+            window.location.href = "index.html"; // Function to go back to login page
+        }
+    </script>
+</body>
+</html>
